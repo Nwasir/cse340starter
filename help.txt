@@ -1,0 +1,9 @@
+<% 'Scriptlet' tag, for control-flow no output
+<%_ 'Whitespace slurping' Scriptlet tag, strips all Whitespace before it
+<%= Outputs the value into the template (HTML escaped)
+<%- Outputs the value into the template
+<%# Comment tag, no execution, no output
+<%% Outputs a literal '<%'
+%> Plain ending tag 
+-%> Trim-mode ('newline slurp') tag, trims following newline
+_%> 'Whitespace slurping' ending tag, removes all Whitespace after it
