@@ -4,3 +4,71 @@
 *:after {
   box-sizing: border-box;
 }
+h1, h2, h3, .DMC {
+  font-family: 'Times New Roman', Times, serif;
+}
+h1, h2, .DMC {
+  font-size: large;
+}
+p {font-family: Arial, Helvetica, sans-serif;}
+#top-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+span.siteName {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+#top-header a {
+  text-decoration: none;
+  color: rgb(48, 46, 46);
+}
+
+ul.nav-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: rgb(48, 46, 46);
+  color: rgb(230, 219, 219);
+  padding: 1rem;
+  list-style: none;
+}
+.delorean {
+  background-image: url("/images/vehicles/delorean-tn.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+blockquote {
+  width: 8rem;
+  background-color: white;
+  opacity: 0.5;
+  color:mediumblue;
+  padding: 0;
+}
+.delorean blockquote a {
+  background-color: #9898dd;
+  color: black;
+  padding: 0.1rem;
+}
+.delorean-upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-row-gap: 1rem;
+}
+.images {
+  border: 1px solid black;
+  background-color: #9898dd;
+  width: 9rem;
+}
+.images img {
+  display: block;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+.pimages a {
+  display: grid;
+  place-items: center;
+}
