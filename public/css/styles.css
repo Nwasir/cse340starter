@@ -4,13 +4,22 @@
 *:after {
   box-sizing: border-box;
 }
-h1, h2, h3, .DMC {
-  font-family: 'Times New Roman', Times, serif;
+h1,
+h2,
+h3,
+.DMC {
+  font-family: "Times New Roman", Times, serif;
 }
-h1, h2, .DMC {
+h1 {
+  font-size: 1.5rem;
+}
+h2,
+.DMC {
   font-size: large;
 }
-p {font-family: Arial, Helvetica, sans-serif;}
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
 #top-header {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -35,17 +44,18 @@ ul.nav-header {
 }
 .delorean {
   background-image: url("/images/vehicles/delorean-tn.jpg");
-  background-position: center;
+  background-position: 5rem;
   background-repeat: no-repeat;
 }
-blockquote {
+.quote {
   width: 8rem;
   background-color: white;
   opacity: 0.5;
-  color:mediumblue;
+  color: mediumblue;
   padding: 0;
+  margin-left: 5vw;
 }
-.delorean blockquote a {
+.delorean .quote a {
   background-color: #9898dd;
   color: black;
   padding: 0.1rem;
@@ -71,4 +81,67 @@ blockquote {
 .pimages a {
   display: grid;
   place-items: center;
+}
+footer {
+  margin: 2vw;
+}
+
+@media only screen and (min-width: 500px) {
+  body {
+    background-color: mediumslateblue;
+  }
+  div#wrapper {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+    border-radius: 0.75rem;
+    background-color: white;
+  }
+  span.siteName {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  #top-header {
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    padding: 1rem;
+  }
+  .delorean {
+    background-image: url("/images/vehicles/delorean.jpg");
+    background-position: 9rem;
+    background-repeat: no-repeat;
+    height: 15rem;
+  }
+  h1 {
+    font-size: xx-large;
+    margin: 2vw;
+  }
+  h2 {
+    font-size: x-large;
+    margin: 2vw;
+  }
+  ul.nav-header {
+    margin: 2vw;
+    border-radius: 0.25rem;
+  }
+  .quote {
+    width: 11rem;
+    background-color: white;
+    opacity: 0.5;
+    color: mediumblue;
+    padding: 1rem;
+  }
+  strong.DMC {
+    font-size: 1.38rem;
+  }
+  a#own-today {
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  div#parent-delorean {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
