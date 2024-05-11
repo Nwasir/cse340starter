@@ -33,14 +33,16 @@ span.siteName {
   text-decoration: none;
   color: rgb(48, 46, 46);
 }
-
 ul.nav-header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  background-color: rgb(48, 46, 46);
-  color: rgb(230, 219, 219);
-  padding: 1rem;
   list-style: none;
+  background-color: rgb(48, 46, 46);
+  padding: 1rem;
+}
+ul.nav-header li a {
+  text-decoration: none;
+  color: rgb(230, 219, 219);
 }
 .delorean {
   background-image: url("/images/vehicles/delorean-tn.jpg");
@@ -60,6 +62,10 @@ ul.nav-header {
   color: black;
   padding: 0.1rem;
 }
+a#own-today {
+  padding: 1rem;
+  text-decoration: none;
+}
 .delorean-upgrades {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -67,9 +73,10 @@ ul.nav-header {
   grid-row-gap: 1rem;
 }
 .images {
-  border: 1px solid black;
+  border: 1px solid #9898dd;
   background-color: #9898dd;
   width: 9rem;
+  height: 5.5rem;
 }
 .images img {
   display: block;
@@ -121,10 +128,10 @@ footer {
     font-size: x-large;
     margin: 2vw;
   }
-  ul.nav-header {
+   ul.nav-header {
     margin: 2vw;
     border-radius: 0.25rem;
-  }
+  } 
   .quote {
     width: 11rem;
     background-color: white;
@@ -135,11 +142,6 @@ footer {
   strong.DMC {
     font-size: 1.38rem;
   }
-  a#own-today {
-    padding: 1rem;
-    text-decoration: none;
-  }
-
   div#parent-delorean {
     display: grid;
     grid-template-columns: 1fr 1fr;
