@@ -2,7 +2,7 @@
 INSERT INTO public.account
 	(account_firstname, account_lastname, account_email, account_password)
 VALUES
-	('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n')
+	('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n');
 
 --update account
 UPDATE 
@@ -10,17 +10,17 @@ UPDATE
 SET 
 	account_type = 'Admin'
 WHERE 
-	account_id = 1
+	account_id = 1;
 
 -- delete 
 DELETE FROM public.account
 WHERE
-	account_id = 1
+	account_id = 1;
 
 -- update
 UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
-WHERE inv_id = 10
+WHERE inv_id = 10;
 
 -- inner join
 SELECT 
@@ -31,7 +31,7 @@ FROM
 	public.inventory
 INNER JOIN public.classification
 	ON public.inventory.classification_id = public.classification.classification_id
- WHERE classification_name = 'Sport'
+ WHERE classification_name = 'Sport';
 
 --replace
 UPDATE public.inventory

@@ -3,7 +3,7 @@ CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340uko;
+    OWNER TO cse340ukoh;
 
 --2 Table structure for table `classification`
 CREATE TABLE public.classification (
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS public.inventory
 	inv_color character varying NOT NULL,
 	classification_id integer NOT NULL,
 	CONsTRAINT inventory_pkey PRIMARY KEY (inv_id)	
-)
+);
 
 --4 Create relationship between `classification` and `inventory` tables
 ALTER TABLE IF EXISTS public.inventory
@@ -241,7 +241,7 @@ VALUES   (
 -- update
 UPDATE public.inventory
 SET inv_description = REPLACE(inv_description, 'small interiors', 'a huge interior')
-WHERE inv_id = 10
+WHERE inv_id = 10;
 
 --replace
 UPDATE public.inventory
