@@ -89,8 +89,37 @@ a#own-today {
   display: grid;
   place-items: center;
 }
-footer {
+footer, #content {
   margin: 2vw;
+}
+/* Classification and detail pages */
+
+ul#inv-display li {
+  list-style: none;
+  border: 2px solid #8080807a;
+  border-radius: .2rem;
+  width: 204px;
+}
+ul#inv-display li a img {
+  border-radius: .25rem;
+}
+div.namePrice hr {
+  height: .25rem;
+  background-color: black;
+}
+div.namePrice { text-align: center;}
+div#content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+p.price, p.color {
+  background-color: rgb(245, 239, 239);
+  border: 2px solid rgb(245, 239, 239);;
+  padding: .75rem;
+}
+div#sub_details {
+  margin: 4vw;
 }
 
 @media only screen and (min-width: 500px) {
@@ -146,4 +175,9 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  ul#inv-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+}
 }

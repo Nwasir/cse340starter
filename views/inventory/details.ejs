@@ -1,0 +1,32 @@
+<title>
+    <%= details.inv_make %>
+        <%= details.inv_model %> Details
+</title>
+
+<h1>
+    <%= details.inv_make %>
+        <%= details.inv_model %>
+</h1>
+<div id="content">
+
+    <div id="inv_image">
+        <img src="<%= details.inv_image %>" alt="<%= details.inv_make %> <%= details.inv_model %>">
+    </div>
+    <div id="inv_details">
+        <h2 id="sub_headings">
+            <%= details.inv_make %>
+                <%= details.inv_model %> Details
+        </h2>
+        <div id="sub_details">
+        <p class="price"><strong>Price:</strong> $<%= details.inv_price %>
+        </p>
+        <p><strong>Description:</strong> <%= details.inv_description %>
+        </p>
+        <p class="color"><strong>Color:</strong> <%= details.inv_color %>
+        </p>        
+        <p><strong>Mileage:</strong> <%= details.inv_miles %>
+        </p>
+    </div>
+    </div>
+
+</div>
