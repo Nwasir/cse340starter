@@ -23,7 +23,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * Build inventory view details
  * ********************************* */
 invCont.getDetailsInventoryId = async function (req, res, next) {
-  const inventory_id = req.params.inv_id;
+  const inventory_id = req.params.invId;
   const details = await invModel.getDetailsInventoryId(inventory_id);
   const nav = await utilities.getNav();
   res.render("./inventory/details", {

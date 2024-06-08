@@ -39,6 +39,8 @@ nav ul {
   list-style: none;
   background-color: rgb(48, 46, 46);
   padding: 1rem;
+  text-align: center;
+  border-radius: .25rem;
 }
 nav li a {
   text-decoration: none;
@@ -107,12 +109,6 @@ div.namePrice hr {
   height: .25rem;
   background-color: black;
 }
-div.namePrice { text-align: center;}
-div#content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
-}
 p.price, p.color {
   background-color: rgb(245, 239, 239);
   border: 2px solid rgb(245, 239, 239);;
@@ -120,6 +116,12 @@ p.price, p.color {
 }
 div#sub_details {
   margin: 4vw;
+}
+div#inv_image img {
+  width: 100%;
+}
+ul#inv-display {
+  text-align: center;
 }
 
 @media only screen and (min-width: 500px) {
@@ -178,6 +180,12 @@ div#sub_details {
   ul#inv-display {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
+}
+div.namePrice { text-align: center;}
+div#content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
 }
 }
