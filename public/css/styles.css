@@ -123,6 +123,37 @@ div#inv_image img {
 ul#inv-display {
   text-align: center;
 }
+/* form */
+div#login_form, div#register_form {
+  border: 1px solid #b3b3c7;
+  width: 25rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  background-color: hsl(206deg 12.69% 12.71%);
+  margin: 2vw;
+  color: white;
+}
+input {
+  width: 18rem;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+span.caution {
+  color: #b3aea7;
+}
+button#login, button#register{
+  display: block;
+  margin: 0 auto;
+  width: 6rem;
+  padding: .4rem;
+  border-radius: 1rem;
+}
+p#register {
+  text-align: center;
+}
+p#register a {
+  color: white;
+}
 
 @media only screen and (min-width: 500px) {
   body {
