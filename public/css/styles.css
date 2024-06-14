@@ -138,7 +138,13 @@ input {
   padding: .5rem;
   border-radius: .5rem;
 }
-span.caution {
+input:required:invalid, input:focus:invalid {
+  border-left: red solid .3rem; 
+}
+input:required:valid {
+  border-left: green solid .3rem;
+}
+span.reminder {
   color: #b3aea7;
 }
 button#login, button#register{
@@ -153,6 +159,11 @@ p#register {
 }
 p#register a {
   color: white;
+}
+ul.notice {
+  color: red;
+  font-style: italic;
+  font-size: large;
 }
 
 @media only screen and (min-width: 500px) {

@@ -16,6 +16,7 @@ const utilities = require("./utilities");
 const session = require("express-session");
 const pool = require("./database/");
 const accountRoute = require("./routes/accountRoute");
+const bodyParser = require("body-parser");
 
 /******************************
  * Middleware
@@ -32,6 +33,10 @@ app.use(
     name: "sessionId",
   })
 );
+
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Express messages Middleware
 app.use(require("connect-flash")());
