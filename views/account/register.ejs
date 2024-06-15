@@ -1,33 +1,32 @@
-<title>
-    <%= title %>
-</title>
-<h1>
-    <%= title %>
-</h1>
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { 
+        res.redirect('/')
+    } %>
+    <%= messages() %>
+    <% if (errors) { %>
+        <ul class="notice">
+       <% errors.array().forEach(error => { %>
+         <li><%= error.msg %></li>
+      <%  }) %>
+       </ul>
+      <% } %>
 
-<% if (errors) { %>
-    <ul class="notice">
-        <% errors.array().forEach(error=> { %>
-            <li>
-                <%= error.msg %>
-            </li>
-
-            <% }) %>
-    </ul>
-    <% } %>
         <div id="register_form">
             <form action="/account/register" method="post">
-                <label for="fname">*First name <br>
-                    <input type="text" name="account_firstname" id="fname" required placeholder="John">
+                <label for="fname">First name* <br>
+                    <input type="text" name="account_firstname" id="fname" required placeholder="John"
+                        value="<%= locals.account_firstname %>">
                 </label><br><br>
-                <label for="lname">*Last name <br>
-                    <input type="text" name="account_lastname" id="lname" required placeholder="Doe">
+                <label for="lname">Last name* <br>
+                    <input type="text" name="account_lastname" id="lname" required placeholder="Doe"
+                        value="<%= locals.account_lastname %>">
                 </label><br><br>
-                <label for="email">*Email address <br>
+                <label for="email">Email address* <br>
                     <input type="email" name="account_email" id="email" required
-                        placeholder="Enter a valid email address">
+                        placeholder="Enter a valid email address" value="<%= locals.account_email %>">
                 </label><br><br>
-                <label for="password">*Password <br>
+                <label for="password">Password* <br>
                     <input type="password" name="account_password" id="password" required
                         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
                 </label><br><br>

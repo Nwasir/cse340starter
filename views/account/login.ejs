@@ -1,17 +1,17 @@
-<title>
-    <%= title %>
-</title>
-<h1>
-    <%= title %>
-</h1><hr>
-<%_ messages() %>
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { 
+        res.redirect('/')
+    } %>
+    <%- messages() %>
+
 
         <div id="login_form">
             <form action="/account/login" method="post">
-                <label for="email">*Email Adddress: <br>
-                    <input type="email" name="account_email" id="email" required placeholder="johndoe@gmail.com">
+                <label for="email">Email Adddress* <br>
+                    <input type="email" name="account_email" id="email" required placeholder="johndoe@gmail.com" value="<%= locals.account_lastname %>">
                 </label><br><br>
-                <label for="password">*password: <br>
+                <label for="password">password* <br>
                     <input type="password" name="account_password" id="password" required
                         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br><br>
                 </label>
