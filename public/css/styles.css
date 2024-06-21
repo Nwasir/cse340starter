@@ -91,7 +91,7 @@ a#own-today {
   display: grid;
   place-items: center;
 }
-footer, #content {
+footer, #content, .inventory-management {
   margin: 2vw;
 }
 /* Classification and detail pages */

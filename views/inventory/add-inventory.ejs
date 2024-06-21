@@ -1,0 +1,48 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <%= messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+                    <form action="/inventory/add-inventory" method="post">
+                        <div id="content">
+                            <label for="make"><strong>Make: </strong>
+                                <input type="text" name="inv_make" minlength="3" required
+                                    placeholder="min of 3 characters">
+                            </label>
+                            <label for="model"><strong>Model:</strong>
+                                <input type="text" name="inv_model" minlength="3" required
+                                    placeholder="min of 3 characters">
+                            </label>
+                            <label for="description"><strong>Description:</strong>
+                                <textarea name="inv_description" required id=""></textarea>
+                            </label>
+                            <label for="imagepath"><strong>Image Path</strong>
+                                <input type="image" src="/public/images/vehicles/no-image.png" required alt="inv_image"
+                                    placeholder="/images/vehicles/no-image.png"></label>
+                            <label for="thumbnail"><strong>thumbnail Path</strong>
+                                <input type="image" src="/public/images/vehicles/no-image-tn.png" required
+                                    alt="inv_thumbnail" placeholder="/images/vehicles/no-image.png">
+                            </label>
+                            <label for="price"><strong>Price</strong>
+                                <input type="text" name="inv_price" id="" required placeholder="decimal or interger">
+                            </label>
+                            <label for="year"><strong>Year</strong>
+                                <input type="text" name="inv_year" required placeholder="4-digit year">
+                            </label>
+                            <label for="miles"><strong>Miles</strong><input type="text" name="inv_miles" required
+                                    placeholder="digits only"></label>
+                            <label for="color"><strong>Color</strong><input type="text" name="inv_color"
+                                    required></label><br>
+                            <button type="submit">Add Vehicle </button>
+
+                    </form>

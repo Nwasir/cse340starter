@@ -33,4 +33,39 @@ invCont.getDetailsInventoryId = async function (req, res, next) {
   });
 };
 
+/************************************
+ * Build management view
+ * *********************************/
+invCont.managementView = async function (req, res, next) {
+  const nav = await utilities.getNav();
+  res.render("inventory/management", {
+    title: "Vehicle Management",
+    nav,
+  });
+};
+
+/**********************************
+ * Build Add classification view
+ * ********************************/
+invCont.classificationView = async function (req, res, next) {
+  const nav = await utilities.getNav();
+  res.render("./inventory/add-classification", {
+    title: "Add Classification",
+    nav,
+    errors: null,
+  });
+};
+
+/***********************************
+ * Build Add Inventory view
+ * *********************************/
+invCont.inventoryView = async function (req, res, next) {
+  const nav = await utilities.getNav();
+  res.render("./inventory/add-inventory", {
+    title: "Add New Vehicle",
+    nav,
+    errors: null,
+  });
+};
+
 module.exports = invCont;
