@@ -82,21 +82,8 @@ async function registerAccount(req, res) {
   }
 }
 
-/**********************************
- * Build Add classification view
- * ********************************/
-// async function classificationView(req, res, next) {
-//   const nav = await utilities.getNav();
-//   res.render("inventory/add-classification", {
-//     title: "Add Classification",
-//     nav,
-//     errors: null,
-//   });
-// }
-
 module.exports = {
   buildLogin,
   buildRegister,
   registerAccount,
-
 };

@@ -40,7 +40,7 @@ nav ul {
   background-color: rgb(48, 46, 46);
   padding: 1rem;
   text-align: center;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 nav li a {
   text-decoration: none;
@@ -91,7 +91,9 @@ a#own-today {
   display: grid;
   place-items: center;
 }
-footer, #content, .inventory-management {
+footer,
+#content,
+.inventory-management {
   margin: 2vw;
 }
 /* Classification and detail pages */
@@ -99,20 +101,21 @@ footer, #content, .inventory-management {
 ul#inv-display li {
   list-style: none;
   border: 2px solid #8080807a;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   width: 204px;
 }
 ul#inv-display li a img {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 div.namePrice hr {
-  height: .25rem;
+  height: 0.25rem;
   background-color: black;
 }
-p.price, p.color {
+p.price,
+p.color {
   background-color: rgb(245, 239, 239);
-  border: 2px solid rgb(245, 239, 239);;
-  padding: .75rem;
+  border: 2px solid rgb(245, 239, 239);
+  padding: 0.75rem;
 }
 div#sub_details {
   margin: 4vw;
@@ -124,34 +127,39 @@ ul#inv-display {
   text-align: center;
 }
 /* form */
-div#login_form, div#register_form {
+div#login_form,
+div#register_form,
+div#add-vehicle {
   border: 1px solid #b3b3c7;
-  width: 25rem;
-  padding: 3rem;
+  width: 19rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: hsl(206deg 12.69% 12.71%);
-  margin: 2vw;
+  /* margin: 1vw; */
   color: white;
 }
 input {
-  width: 18rem;
-  padding: .5rem;
-  border-radius: .5rem;
+  width: 16rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
-input:required:invalid, input:focus:invalid {
-  border-left: red solid .3rem; 
+input:required:invalid,
+input:focus:invalid {
+  border-left: red solid 0.3rem;
 }
 input:required:valid {
-  border-left: green solid .3rem;
+  border-left: green solid 0.3rem;
 }
 span.reminder {
   color: #b3aea7;
 }
-button#login, button#register{
+button#login,
+button#register,
+button#add-vehicle {
   display: block;
   margin: 0 auto;
   width: 6rem;
-  padding: .4rem;
+  padding: 0.4rem;
   border-radius: 1rem;
 }
 p#register {
@@ -165,6 +173,13 @@ ul.notice {
   font-style: italic;
   font-size: large;
   list-style: none;
+}
+/* Add New Vehicle */
+
+textarea#inv_description {
+  width: 16rem;
+  height: 4rem;
+  border-radius: 0.5rem;
 }
 
 @media only screen and (min-width: 500px) {
@@ -202,10 +217,10 @@ ul.notice {
     font-size: x-large;
     margin: 2vw;
   }
-   nav ul {
+  nav ul {
     margin: 2vw;
     border-radius: 0.25rem;
-  } 
+  }
   .quote {
     width: 11rem;
     background-color: white;
@@ -224,11 +239,27 @@ ul.notice {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 15px;
-}
-div.namePrice { text-align: center;}
-div#content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
-}
+  }
+  div.namePrice {
+    text-align: center;
+  }
+  div#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+  /* form */
+  div#login_form, div#register_form, div#add-vehicle {
+    width: 25rem;
+    margin: 2vw;
+    padding: 3rem;
+  }
+  input {
+    width: 18rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  textarea#inv_description {
+    width: 18rem;
+  }
 }

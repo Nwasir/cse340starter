@@ -1,20 +1,24 @@
 <% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else { 
-        res.redirect('/')
-    } %>
-    <%= messages() %>
-    <% if (errors) { %>
-        <ul class="notice">
-       <% errors.array().forEach(error => { %>
-         <li><%= error.msg %></li>
-      <%  }) %>
-       </ul>
-      <% } %>
-    
-    <form action="/inventory/add-classification" method="post">
-        <label for="classificationName"> Add Classification
-            <input type="text" name="classification_name" id="classificationName" required pattern="^[a-zA-Z0-9]+$">
-        </label><br>
-        <button type="submit" id="add-classification" >Add Classification</button>
-    </form>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <%- messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+                    <form action="/inv/add-classification" method="post">
+                        <label for="classificationName"> Add Classification
+                            <input type="text" name="classification_name" id="classificationName" required
+                                pattern="^[a-zA-Z]+$"
+                                value="<%= typeof classification_name != 'undefined' ? classification_name : '' %>">
+                        </label><br>
+                        <button type="submit" id="add-classification">Add Classification</button>
+                    </form>

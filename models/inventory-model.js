@@ -28,7 +28,7 @@ async function getInventoryByClassificationId(classification_id) {
 }
 
 /* ***************************
- * Get data for specific vehicle in inventory
+ * Get data for add classification
  * *************************** */
 async function getDetailsInventoryId(inventory_id) {
   try {
@@ -42,4 +42,58 @@ async function getDetailsInventoryId(inventory_id) {
   }
 }
 
-module.exports = { getClassifications, getInventoryByClassificationId, getDetailsInventoryId };
+/***********************
+ * Get data for add classification
+ ************************ */
+async function addNewClassifiaction(classification_name) {
+  try {
+    const data =
+      "INSERT INTO public.classification (classification_name) VALUES($1)";
+    return await pool.query(data, [classification_name]);
+  } catch (error) {
+    return error.message;
+  }
+}
+
+/*******************************
+ * Get data for Add new vehicle
+ ****************************** */
+async function addNewInventory(
+  inv_make,
+  inv_model,
+  inv_year,
+  inv_description,
+  inv_image,
+  inv_thumbnail,
+  inv_price,
+  inv_miles,
+  inv_color,
+  classification_id
+) {
+  try {
+    const sql =
+      "INSERT INTO account (inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 'Admin') RETURNING *";
+    return await pool.query(sql, [
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      classification_id,
+    ]);
+  } catch (error) {
+    return error.message;
+  }
+}
+
+module.exports = {
+  getClassifications,
+  getInventoryByClassificationId,
+  getDetailsInventoryId,
+  addNewClassifiaction,
+  addNewInventory,
+};
