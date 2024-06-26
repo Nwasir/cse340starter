@@ -129,7 +129,8 @@ ul#inv-display {
 /* form */
 div#login_form,
 div#register_form,
-div#add-vehicle {
+div#add-vehicle,
+div#add-classification {
   border: 1px solid #b3b3c7;
   width: 19rem;
   padding: 1rem;
@@ -155,7 +156,8 @@ span.reminder {
 }
 button#login,
 button#register,
-button#add-vehicle {
+button#add-vehicle,
+button#add-classification {
   display: block;
   margin: 0 auto;
   width: 6rem;
@@ -249,7 +251,7 @@ textarea#inv_description {
     grid-column-gap: 20px;
   }
   /* form */
-  div#login_form, div#register_form, div#add-vehicle {
+  div#login_form, div#register_form, div#add-vehicle, div#add-classification {
     width: 25rem;
     margin: 2vw;
     padding: 3rem;

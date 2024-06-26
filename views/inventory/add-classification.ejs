@@ -13,12 +13,13 @@
                         <% }) %>
                 </ul>
                 <% } %>
-
-                    <form action="/inv/add-classification" method="post">
-                        <label for="classificationName"> Add Classification
-                            <input type="text" name="classification_name" id="classificationName" required
-                                pattern="^[a-zA-Z]+$"
-                                value="<%= typeof classification_name != 'undefined' ? classification_name : '' %>">
-                        </label><br>
-                        <button type="submit" id="add-classification">Add Classification</button>
-                    </form>
+                    <div id="add-classification">
+                        <form action="/inv/add-classification" method="post">
+                            <label for="classificationName"> <strong>Add Classification</strong><br>
+                                <input type="text" name="classification_name" id="classificationName" required
+                                    pattern="^[a-zA-Z]+$"
+                                    value="<%= typeof classification_name != 'undefined' ? classification_name : '' %>">
+                            </label><br><br>
+                            <button type="submit" id="add-classification">Add Classification</button>
+                        </form>
+                    </div>

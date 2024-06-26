@@ -27,14 +27,14 @@
                                         placeholder="min of 3 characters">
                                 </label><br>
                                 <label for="description"><strong>Description</strong><br>
-                                    <textarea name="inv_description" required id="inv_description" value="<%= locals.inv_description %>"></textarea>
+                                    <textarea name="inv_description" required id="inv_description" placeholder="Not more than 100 words" value="<%= locals.inv_description %>"></textarea>
                                 </label><br>
                                 <label for="imagepath"><strong>Image Path</strong><br>
                                     <input type="text" name="inv_image" id="inv_image" required alt="inv_image"
                                         placeholder="/images/vehicles/no-image.png" value="<%= locals.inv_thumbnail ? locals.inv_thumbnail : '/images/vehicles/no-image.png' %>">
                                 </label><br>
                                 <label for="thumbnail"><strong>thumbnail Path</strong><br>
-                                    <input type="text" id="inv_thumbnail" required alt="inv_thumbnail"
+                                    <input type="text" id="inv_thumbnail" name="inv_thumbnail" required alt="inv_thumbnail"
                                         placeholder="/images/vehicles/no-image.png" value="<%= locals.inv_thumbnail ? locals.inv_thumbnail : '/images/vehicles/no-image-tn.png' %>">
                                 </label><br>
                                 <label for="price"><strong>Price</strong><br>
@@ -46,8 +46,8 @@
                                         placeholder="4-digit year" value="<%= locals.inv_year %>">
                                 </label><br>
                                 <label for="miles"><strong>Miles</strong><br>
-                                    <input type="text" id="inv_miles" value="<%= locals.inv_miles %>"
-                                        name="inv_miles" required placeholder="digits only"></label><br>
+                                    <input type="text" name="inv_miles" id="inv_miles" value="<%= locals.inv_miles %>"
+                                         required placeholder="digits only"></label><br>
                                 <label for="color"><strong>Color</strong><br>
                                     <input type="text" name="inv_color" id="inv_color" required value="<%= locals.inv_color %>">
                                 </label><br><br>

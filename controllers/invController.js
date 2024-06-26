@@ -49,9 +49,11 @@ invCont.managementView = async function (req, res, next) {
  * ********************************/
 invCont.classificationView = async function (req, res, next) {
   const nav = await utilities.getNav();
+  const classifications = await invModel.getClassifications();
   res.render("./inventory/add-classification", {
     title: "Add Classification",
     nav,
+    classifications,
     errors: null,
   });
 };
@@ -132,20 +134,22 @@ invCont.processInventory = async function (req, res, next) {
 
   if (result) {
     req.flash("notice", `Congratulations! You have added a new Vehicle`);
-    // const nav = await utilities.getNav();
-    res.status(201).render("./inventory/management", {
+    const nav = await utilities.getNav();
+    res.status(201).render("inventory/management", {
       title: "Vehicle Management",
       nav,
       errors: null,
     });
   } else {
+    const nav = await utilities.getNav();
     req.flash("notice", "Sorry, the inventory failed");
-    res.status(501).render("./inventory/add-inventory", {
+    res.status(501).render("inventory/add-inventory", {
       title: "Add New Vehicles",
       nav,
       errors: null,
     });
   }
 };
+
 
 module.exports = invCont;
