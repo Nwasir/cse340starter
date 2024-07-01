@@ -9,3 +9,18 @@
 _%> 'Whitespace slurping' ending tag, removes all Whitespace after it
 
 url address: https://cse340starter-oi5s.onrender.com
+
+account_firstname: Basic
+account_lastname: Client
+account_email: basic@340.edu
+account_password: I@mABas1cCl!3nt
+
+account_firstname: Happy
+account_lastname: Employee
+account_email: happy@340.edu
+account_password: I@mAnEmpl0y33
+
+account_firstname: Manager
+account_lastname: User
+account_email: manager@340.edu
+account_password: I@mAnAdm!n1strat0r

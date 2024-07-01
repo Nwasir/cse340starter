@@ -31,5 +31,10 @@ router.post(
   ValidateAll.checkInventoryData,
   utilities.handleErrors(invController.processInventory)
 );
+// Route that workswith inventory.js
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+);
 
 module.exports = router;

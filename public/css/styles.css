@@ -35,7 +35,7 @@ span.siteName {
 }
 nav ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   list-style: none;
   background-color: rgb(48, 46, 46);
   padding: 1rem;
@@ -93,7 +93,7 @@ a#own-today {
 }
 footer,
 #content,
-.inventory-management {
+.inventory-management, div#logged-in {
   margin: 2vw;
 }
 /* Classification and detail pages */
@@ -136,7 +136,6 @@ div#add-classification {
   padding: 1rem;
   border-radius: 1rem;
   background-color: hsl(206deg 12.69% 12.71%);
-  /* margin: 1vw; */
   color: white;
 }
 input {
@@ -170,7 +169,7 @@ p#register {
 p#register a {
   color: white;
 }
-ul.notice {
+ul.notice, noscript.notice {
   color: red;
   font-style: italic;
   font-size: large;

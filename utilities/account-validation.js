@@ -88,6 +88,7 @@ validate.loginRules = () => {
     body("account_email")
       .trim()
       .escape()
+      .notEmpty()
       .isEmail()
       .normalizeEmail() // refer to validator.js docs
       .withMessage("A valid email is required."),
@@ -95,6 +96,7 @@ validate.loginRules = () => {
     body("account_password")
       .trim()
       .escape()
+      .notEmpty()
       .isStrongPassword({
         minLength: 12,
         minLowercase: 1,
