@@ -1,0 +1,79 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <%- messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+
+                <% } %>
+                    <div id="add-vehicle">
+                        <form action="/inv/update" method="post" id="updateForm">
+                            <!-- classification dropsown sslect list -->
+                            <label for="classification">Classification:</label><br>
+                            <%- classificationList %><br><br>
+                                <label for="make"><strong>Make</strong><br>
+                                    <input type="text" name="inv_make" id="inv_make" minlength="3" required <% if(locals.inv_make) { %> value="<%=
+                                    locals.inv_make %>"
+                                    <% } %>
+                                        placeholder="min of 3 characters">
+                                </label><br>
+                                <label for="model"><strong>Model</strong><br>
+                                    <input type="text" name="inv_model" id="inv_model" minlength="3" required <% if(locals.inv_model) { %> value="<%=
+                                    locals.inv_model %>"
+                                    <% } %>
+                                        placeholder="min of 3 characters">
+                                </label><br>
+                                <label for="description"><strong>Description</strong><br>
+                                    <textarea name="inv_description" required id="inv_description" placeholder="Not more than 100 words"><% if(locals.inv_description) { %><%=
+                                        locals.inv_description %>
+                                        <% } %></textarea>
+                                </label><br>
+                                <label for="imagepath"><strong>Image Path</strong><br>
+                                    <input type="text" name="inv_image" id="inv_image" required alt="inv_image"
+                                        placeholder="/images/vehicles/no-image.png"<% if(locals.inv_image) { %> value="<%=
+                                        locals.inv_image %>"
+                                        <% } %>>
+                                </label><br>
+                                <label for="thumbnail"><strong>thumbnail Path</strong><br>
+                                    <input type="text" id="inv_thumbnail" name="inv_thumbnail" required alt="inv_thumbnail"
+                                        placeholder="/images/vehicles/no-image.png" <% if(locals.inv_thumbnail) { %> value="<%=
+                                        locals.inv_thumbnail %>"
+                                        <% } %>>
+                                </label><br>
+                                <label for="price"><strong>Price</strong><br>
+                                    <input type="text" name="inv_price" id="inv_price" required
+                                        placeholder="decimal or interger" <% if(locals.inv_price) { %> value="<%=
+                                        locals.inv_price %>"
+                                        <% } %>>
+                                </label><br>
+                                <label for="year"><strong>Year</strong><br>
+                                    <input type="text" name="inv_year" id="inv_year" required
+                                        placeholder="4-digit year" <% if(locals.inv_year) { %> value="<%=
+                                        locals.inv_year %>"
+                                        <% } %>>
+                                </label><br>
+                                <label for="miles"><strong>Miles</strong><br>
+                                    <input type="text" name="inv_miles" id="inv_miles" <% if(locals.inv_miles) { %> value="<%=
+                                    locals.inv_miles %>"
+                                    <% } %>
+                                         required placeholder="digits only"></label><br>
+                                <label for="color"><strong>Color</strong><br>
+                                    <input type="text" name="inv_color" id="inv_color" required <% if(locals.inv_color) { %> value="<%=
+                                    locals.inv_color %>"
+                                    <% } %>>
+                                </label><br>
+                                    <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%=
+                                        locals.inv_id %>"
+                                        <% } %>><br><br>
+                                    <button type="submit" id="add-vehicle">Update Vehicle </button>
+                        </form>
+                    </div>
+                    <script src="../../js/inv-update.js"></script>

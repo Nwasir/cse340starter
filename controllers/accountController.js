@@ -118,10 +118,11 @@ async function accountLogin(req, res, next) {
           maxAge: 3600 * 1000,
         });
       }
+      req.session.user = accountData;
       return res.redirect("/account/");
     }
   } catch (error) {
-    return new Error("Access Frobidden");
+    return new Error("Access Forbidden");
   }
 }
 
@@ -137,10 +138,20 @@ async function buildManagement(req, res, next) {
   });
 }
 
+/**********************************************
+ * Process Logout
+ * ********************************************/
+async function accountLogout(req, res, next) {
+  res.clearCookie("jwt");
+  // req.session.destroy();
+  res.redirect("/");
+}
+
 module.exports = {
   buildLogin,
   buildRegister,
   registerAccount,
   accountLogin,
   buildManagement,
+  accountLogout,
 };
