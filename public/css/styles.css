@@ -206,7 +206,7 @@ textarea#inv_description {
   }
   #top-header {
     display: grid;
-    grid-template-columns: 8fr 1fr;
+    grid-template-columns: 5fr 1fr;
     padding: 1rem;
   }
   .delorean {
