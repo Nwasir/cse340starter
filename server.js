@@ -36,8 +36,8 @@ app.use(
 );
 
 // for parsing application/x-www-form-urlencoded
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Express messages Middleware
@@ -47,7 +47,18 @@ app.use(function (req, res, next) {
   next();
 });
 
+// Middleware to set JWT token and user information
 app.use(utilities.checkJWTToken);
+
+app.use((req, res, next) => {
+  if (!req.user) {
+    req.user = { anonymous: true };
+  }
+  res.locals.user = req.user;
+  res.locals.authenticated = !req.user.anonymous;
+  next();
+});
+
 /* ***********************
  * View Engine Templates
  *************************/

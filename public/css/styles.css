@@ -130,7 +130,8 @@ ul#inv-display {
 div#login_form,
 div#register_form,
 div#add-vehicle,
-div#add-classification {
+div#add-classification,
+div#update-form {
   border: 1px solid #b3b3c7;
   width: 19rem;
   padding: 1rem;
@@ -156,7 +157,8 @@ span.reminder {
 button#login,
 button#register,
 button#add-vehicle,
-button#add-classification {
+button#add-classification,
+button#update-account {
   display: block;
   margin: 0 auto;
   width: 6rem;

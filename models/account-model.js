@@ -11,7 +11,7 @@ async function registerAccount(
 ) {
   try {
     const sql =
-      "INSERT INTO account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *";
+      "INSERT INTO public.account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *";
     return await pool.query(sql, [
       account_firstname,
       account_lastname,
@@ -28,7 +28,7 @@ async function registerAccount(
  * *************************/
 async function checkExistingEmail(account_email) {
   try {
-    const sql = "SELECT * FROM account WHERE account_email = $1";
+    const sql = "SELECT * FROM public.account WHERE account_email = $1";
     const email = await pool.query(sql, [account_email]);
     return email.rowCount;
   } catch (error) {
@@ -51,4 +51,50 @@ async function getAccountByEmail(account_email) {
   }
 }
 
-module.exports = { registerAccount, checkExistingEmail, getAccountByEmail };
+/*************************************
+ * get account
+ ***************************************/
+async function getAccountById(account_id) {
+  try {
+    const result = await pool.query(
+      `SELECT * FROM public.account WHERE account_id = $1`,
+      [account_id]
+    );
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error getting account by ID " + error);
+  }
+}
+
+/*******************************
+ * Update account data
+ ****************************** */
+async function updateAccount(
+  account_id,
+  account_firstname,
+  account_lastname,
+  account_email
+) {
+  try {
+    const sql =
+      "UPDATE public.account SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4 RETURNING *";
+    const result = await pool.query(sql, [
+      account_firstname,
+      account_lastname,
+      account_email,
+      parseInt(account_id, 10),
+    ]);
+
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error updating account: " + error);
+  }
+}
+
+module.exports = {
+  registerAccount,
+  checkExistingEmail,
+  getAccountByEmail,
+  getAccountById,
+  updateAccount,
+};

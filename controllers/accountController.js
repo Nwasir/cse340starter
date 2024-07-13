@@ -118,7 +118,7 @@ async function accountLogin(req, res, next) {
           maxAge: 3600 * 1000,
         });
       }
-      req.session.user = accountData;
+      // req.session.log = accountData;
       return res.redirect("/account/");
     }
   } catch (error) {
@@ -147,6 +147,116 @@ async function accountLogout(req, res, next) {
   res.redirect("/");
 }
 
+/**********************************************
+ * Update account Information view
+ * ********************************************/
+async function buildUpdateAccount(req, res, next) {
+  let nav = await utilities.getNav();
+  const account_id = req.params.account_id;
+  const accountData = await accountModel.getAccountById(account_id);
+  if (!accountData) {
+    req.flash("notice", "Account not found");
+    return res.redirect("/account/");
+  }
+  res.render("account/update", {
+    title: "Update Account Information",
+    nav,
+    accountData,
+    errors: null,
+  });
+}
+
+/**********************************************
+ * Process Update Account Information
+ * ********************************************/
+async function updateAccount(req, res, next) {
+  let nav = await utilities.getNav();
+  const { account_firstname, account_lastname, account_email, account_id } =
+    req.body;
+
+  // Convert account_id to integer
+  // const accountIdInt = parseInt(account_id, 10);
+
+  const updateResult = await accountModel.updateAccount(
+    parseInt(account_id, 10),
+    account_firstname,
+    account_lastname,
+    account_email
+  );
+
+  if (updateResult) {
+    req.flash("notice", "Account information updateed successfully.");
+    return res.redirect("/account/");
+  } else {
+    req.flash("notice", "Failed to update account information.");
+    res.status(500).render("account/update", {
+      title: "Update Account Information",
+      nav,
+      errors: null,
+      accountData: {
+        account_id,
+        account_firstname,
+        account_lastname,
+        account_email,
+      },
+    });
+  }
+}
+
+/**********************************************
+ * Process Change Password
+ * ********************************************/
+async function updatePassword(req, res, next) {
+  let nav = await utilities.getNav();
+  const { current_password, new_password, confirm_new_password, account_id } =
+    req.body;
+
+  if (new_password !== confirm_new_password) {
+    req.flash("notice", "New passwords do not match.");
+    return res.status(400).render("account/update", {
+      title: "Update Account Information",
+      nav,
+      accountData: await accountModel.getAccountById(account_id),
+      errors: null,
+    });
+  }
+
+  const result = await accountModel.getAccountById(account_id);
+  if (!result) {
+    req.flash("notice", "Account not found.");
+    return res.redirect("/account/");
+  }
+
+  if (!(await bcrypt.compare(current_password, result.account_password))) {
+    req.flash("notice", "Current password is incorrect.");
+    return res.status(400).render("account/update", {
+      title: "Update Account Information",
+      nav,
+      result,
+      errors: null,
+    });
+  }
+
+  const hashedNewPassword = await bcrypt.hashSync(new_password, 10);
+  const passwordUpdateResult = await accountModel.updatePassword(
+    account_id,
+    hashedNewPassword
+  );
+
+  if (passwordUpdateResult) {
+    req.flash("notice", "Password updated successfully.");
+    return res.redirect("/account/");
+  } else {
+    req.flash("notice", "Failed to update password.");
+    return res.status(500).render("account/update", {
+      title: "Update Account Information",
+      nav,
+      accountData,
+      errors: null,
+    });
+  }
+}
+
 module.exports = {
   buildLogin,
   buildRegister,
@@ -154,4 +264,7 @@ module.exports = {
   accountLogin,
   buildManagement,
   accountLogout,
+  buildUpdateAccount,
+  updateAccount,
+  updatePassword,
 };

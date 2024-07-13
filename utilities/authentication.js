@@ -19,7 +19,8 @@ async function checkAdminOrEmployee(req, res, next) {
       decoded.account_type === "Admin"
     ) {
       req.user = decoded;
-      next();
+      // next();
+      return res.redirect("/inv/edit-inventory");
     } else {
       req.flash("notice", "You do not have permission to access this page.");
       return res.redirect("/account/login");
