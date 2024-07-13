@@ -4,58 +4,71 @@
     </h1>
     <% } else { res.redirect('/'); } %>
         <%- messages() %>
-            <div id="update-form">
-                <form action="/account/update" method="post">
-                    <label for="firstname">First Name<br>
-                        <input type="text" name="account_firstname" id="firstname" required <% if(
-                            accountData && accountData.account_firstname) { %> value="<%= accountData && accountData.account_firstname %>"
-                            <% } %>> 
-                        </label><br><br>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+                    <div id="update-form">
+                        <form action="/account/update" method="post">
+                            <label for="firstname">First Name<br>
+                                <input type="text" name="account_firstname" id="firstname" required <% if( accountData
+                                    && accountData.account_firstname) { %> value="<%= accountData &&
+                                    accountData.account_firstname %>"
+                                    <% } %>>
+                            </label><br><br>
 
-                    <label for="lastname">Last Name:<br>
-                        <input type="text" name="account_lastname" id="lastname" required <% if(
-                            accountData && accountData.account_lastname) { %> value="<%= accountData && accountData.account_lastname %>"
-                            <% } %>>
-                    </label><br><br>
+                            <label for="lastname">Last Name:<br>
+                                <input type="text" name="account_lastname" id="lastname" required <% if( accountData &&
+                                    accountData.account_lastname) { %> value="<%= accountData &&
+                                    accountData.account_lastname %>"
+                                    <% } %>>
+                            </label><br><br>
 
-                    <label for="email">Email<br>
-                        <input type="email" name="account_email" id="email" required <% if(
-                            accountData && accountData.account_email) { %> value="<%= accountData && accountData.account_email %>"
-                            <% } %>>
-                    </label><br>
+                            <label for="email">Email<br>
+                                <input type="email" name="account_email" id="email" required <% if( accountData &&
+                                    accountData.account_email) { %> value="<%= accountData && accountData.account_email
+                                    %>"
+                                    <% } %>>
+                            </label><br>
 
-                    <input type="hidden" name="account_id" <% if(accountData && accountData.account_id) { %> value="<%=
-                    accountData && accountData.account_id %>"
-                        <% } %>><br><br>
+                            <input type="hidden" name="account_id" <% if(accountData && accountData.account_id) { %>
+                            value="<%= accountData && accountData.account_id %>"
+                                <% } %>><br><br>
 
-                            <button type="submit" id="update-account">Update</button>
-                </form>
-            </div> <br>
-            <hr>
+                                    <button type="submit" id="update-account">Update</button>
+                        </form>
+                    </div> <br>
+                    
+                    <div id="update-form">
+                        <h3>Change Password</h3>
+                        <hr><br>
 
-            <div id="update-form">
-                <h1>Change Password</h1>
+                        <form action="/account/update/password" method="POST" class="change-password-form">
 
-                <form action="/account/update/password" method="POST" class="change-password-form">
+                            <label for="currentPassword">Current Password:<br>
+                                <input type="password" id="currentPassword" name="account_password" required>
+                            </label><br><br>
 
-                    <label for="currentPassword">Current Password:<br>
-                        <input type="password" id="currentPassword" name="account_password" required >
-                    </label><br><br>
+                            <label for="newPassword">New Password:<br>
+                                <input type="password" id="newPassword" name="new_password" required
+                                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+                            </label><br>
+                            <span class="reminder"><i>Passwords must be at least 12 characters and contain at least 1
+                                    number, 1
+                                    capital letter and 1 special character</i></span><br><br>
+                            <label for="confirmPassword">Confirm New Password: <br>
+                                <input type="password" id="confirmPassword" name="confirm_password" required><br><br>
+                            </label><br>
 
-                    <label for="newPassword">New Password:<br>
-                        <input type="password" id="newPassword" name="new_password" required
-                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" >
-                    </label><br>
-                    <span class="reminder"><i>Passwords must be at least 12 characters and contain at least 1 number, 1
-                            capital letter and 1 special character</i></span><br><br>
-                    <label for="confirmPassword">Confirm New Password: <br>
-                        <input type="password" id="confirmPassword" name="confirm_password" required><br><br>
-                    </label><br>
+                            <input type="hidden" name="account_id" <% if(user.account_id) { %> value="<%=
+                                user.account_id %>"
+                                <% } %>><br>
 
-                    <input type="hidden" name="account_id" <% if(user.account_id) { %> value="<%=
-                        user.account_id %>"
-                        <% } %>><br>
-
-                    <button type="submit" id="update-account">Change Password</button>
-                </form>
-            </div>
+                                    <button type="submit" id="update-account">Change Password</button>
+                        </form>
+                    </div>

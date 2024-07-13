@@ -93,7 +93,8 @@ a#own-today {
 }
 footer,
 #content,
-.inventory-management, div#logged-in {
+.inventory-management,
+div#logged-in {
   margin: 2vw;
 }
 /* Classification and detail pages */
@@ -133,11 +134,12 @@ div#add-vehicle,
 div#add-classification,
 div#update-form {
   border: 1px solid #b3b3c7;
-  width: 19rem;
+  width: 21rem;
   padding: 1rem;
   border-radius: 1rem;
   background-color: hsl(206deg 12.69% 12.71%);
   color: white;
+  margin: 2vw;
 }
 input {
   width: 16rem;
@@ -171,7 +173,8 @@ p#register {
 p#register a {
   color: white;
 }
-ul.notice, noscript.notice {
+ul.notice,
+noscript.notice {
   color: red;
   font-style: italic;
   font-size: large;
@@ -252,7 +255,10 @@ textarea#inv_description {
     grid-column-gap: 20px;
   }
   /* form */
-  div#login_form, div#register_form, div#add-vehicle, div#add-classification {
+  div#login_form,
+  div#register_form,
+  div#add-vehicle,
+  div#add-classification {
     width: 25rem;
     margin: 2vw;
     padding: 3rem;

@@ -173,9 +173,12 @@ invCont.getInventoryJSON = async (req, res, next) => {
  * Build edit Inventory
  * *********************************/
 invCont.editInventory = async function (req, res, next) {
-  const inv_id = parseInt(req.params.inv_id);
+  console.log("editInventory method called")
   const nav = await utilities.getNav();
+  const inv_id = parseInt(req.params.inv_id);
+  console.log("inv_id:", inv_id);
   const itemData = await invModel.getDetailsInventoryId(inv_id);
+  console.log("itemData:", itemData);
   const classificationList = await utilities.buildClassificationList(
     itemData.classification_id
   );
@@ -183,7 +186,7 @@ invCont.editInventory = async function (req, res, next) {
   res.render("./inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
-    classificationList: classificationList,
+    classificationList,
     errors: null,
     inv_id: itemData.inv_id,
     inv_make: itemData.inv_make,
