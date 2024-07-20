@@ -1,0 +1,63 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+        <%- messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+
+                <% } %>
+                    <div id="order-vehicle">
+                        <form action="/purchase/order" method="post">
+                            <label for="fname">First Name* <br>
+                                <input type="text" id="purchase_firstname" name="purchase_firstname" required
+                                    value="<%= locals.purchase_firstname %>">
+                            </label><br>
+                            <label for="lname">Last Name* <br>
+                                <input type="text" id="purchase_lastname" name="purchase_lastname" required
+                                    value="<%= locals.purchase_lastname %>">
+                            </label><br>
+                            <label for="fname">Email Address* <br>
+                                <input type="email" id="purchase_email" name="purchase_email" required
+                                    value="<%= locals.purchase_email %>">
+                            </label><br>
+                            <label for="House Address">House Address* <br>
+                                <input type="text" id="purchase_address" name="purchase_address" required
+                                    value="<%= locals.purchase_address %>">
+                            </label><br>
+                            <label for="Phone Number">Phone Number* <br>
+                                <input type="tel" id="purchase_phone" name="purchase_phone" required
+                                    value="<%= locals.purchase_phone %>">
+                            </label><br>
+                            <label for="Price">Price*
+                                <br>
+                                <input type="text" id="purchase_price" maxlength="5" name="purchase_price"
+                                    requiredvalue="<%= locals.purchase_price %>">
+                            </label><br><br>
+                            <hr><br>
+                            <span><strong>Card Details</strong></span><br><br>
+                            <hr>
+
+                            <label for="card">Card Number* <br>
+                                <input type="text" id="purchase_cardnumber" maxlength="19" name="purchase_cardnumber"
+                                    requiredvalue="<%= locals.purchase_cardnumber %>">
+                            </label><br>
+                            <label for="Expirydate">Expiry Date* <br>
+                                <input type="date" name="purchase_expirydate" id="purchase_expirydate" required
+                                    value="<%= locals.purchase_expirydate %>">
+                            </label><br>
+                            <label for="securitycode">Security Code* <br>
+                                <input type="text" maxlength="4" name="purchase_securitycode" id="purchase_securitycode"
+                                    required value="<%= locals.purchase_securitycode %>">
+                            </label><br><br>
+
+                            <button type="submit" id="order">Place Order</button>
+                        </form>
+                    </div>

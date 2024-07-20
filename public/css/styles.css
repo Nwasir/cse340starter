@@ -132,7 +132,9 @@ div#login_form,
 div#register_form,
 div#add-vehicle,
 div#add-classification,
-div#update-form {
+div#update-form,
+div#order-vehicle,
+a#purchase-button {
   border: 1px solid #b3b3c7;
   width: 21rem;
   padding: 1rem;
@@ -160,10 +162,12 @@ button#login,
 button#register,
 button#add-vehicle,
 button#add-classification,
-button#update-account {
+button#update-account,
+button#order,
+a#purchase-button {
   display: block;
   margin: 0 auto;
-  width: 6rem;
+  width: 7rem;
   padding: 0.4rem;
   border-radius: 1rem;
 }

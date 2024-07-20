@@ -3,7 +3,7 @@ const router = express.Router();
 const utilities = require("../utilities");
 const accountController = require("../controllers/accountController");
 const regValidate = require("../utilities/account-validation");
-// const auth = require("../utilities/authentication");
+
 //route to build login
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 
